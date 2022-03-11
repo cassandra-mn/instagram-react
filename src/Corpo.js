@@ -31,14 +31,8 @@ export default function ConvolverOptions() {
       </div>
 
       <div class="sidebar">
-        <div class="usuario">
-          <img src="assets/img/catanacomics.svg" />
-          <div class="texto">
-            <strong>catanacomics</strong>
-            Catana
-          </div>
-        </div>
-
+        <Usuario imagem="assets/img/catanacomics.svg" usuario="catanacomics" nome="Catana"/>
+       
         <Sugestoes />
 
         <div class="links">
@@ -163,6 +157,18 @@ function Sugestoes() {
       {sugestoes.map(sugestao =>
         <Sugestao imagem={sugestao.imagem} nome={sugestao.nome} razao={sugestao.razao} />
       )}
+    </div>
+  );
+}
+
+function Usuario(props) {
+  return (
+    <div class="usuario">
+      <img src={props.imagem} />
+      <div class="texto">
+        <strong>{props.usuario}</strong>
+        {props.nome}
+      </div>
     </div>
   );
 }
