@@ -22,7 +22,7 @@ const sugestoes = [
   { imagem: "assets/img/smallcutecats.svg", nome: "smallcutecats", razao: "Segue você" }
 ];
 
-export default function ConvolverOptions() {
+export default function Corpo() {
   return (
     <div class="corpo">
       <div class="esquerda">
@@ -31,17 +31,10 @@ export default function ConvolverOptions() {
       </div>
 
       <div class="sidebar">
-        <Usuario imagem="assets/img/catanacomics.svg" usuario="catanacomics" nome="Catana"/>
-       
+        <Usuario imagem="assets/img/catanacomics.svg" usuario="catanacomics" nome="Catana" />
         <Sugestoes />
-
-        <div class="links">
-          Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma
-        </div>
-
-        <div class="copyright">
-          © 2021 INSTAGRAM DO FACEBOOK
-        </div>
+        <Links />
+        <Copyrigth />
       </div>
     </div>
   );
@@ -169,6 +162,22 @@ function Usuario(props) {
         <strong>{props.usuario}</strong>
         {props.nome}
       </div>
+    </div>
+  );
+}
+
+function Links() {
+  return (
+    <div class="links">
+      Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma
+    </div>
+  );
+}
+
+function Copyrigth() {
+  return (
+    <div class="copyright">
+      © 2021 INSTAGRAM DO FACEBOOK
     </div>
   );
 }
