@@ -10,8 +10,16 @@ const stories = [
 ];
 
 const posts = [
-  { imagem: "assets/img/meowed.svg", nome: "meowed", perfil:"assets/img/respondeai.svg", conteudo: "assets/img/gato-telefone.svg", curtidas: "respondeai", quantidade: 101.523 },
-  { imagem: "assets/img/barked.svg", nome: "barked", perfil:"assets/img/adorable_animals.svg", conteudo: "assets/img/dog.svg", curtidas: "adorable_animals", quantidade: 99.159 }
+  { imagem: "assets/img/meowed.svg", nome: "meowed", perfil: "assets/img/respondeai.svg", conteudo: "assets/img/gato-telefone.svg", curtidas: "respondeai", quantidade: 101.523 },
+  { imagem: "assets/img/barked.svg", nome: "barked", perfil: "assets/img/adorable_animals.svg", conteudo: "assets/img/dog.svg", curtidas: "adorable_animals", quantidade: 99.159 }
+];
+
+const sugestoes = [
+  { imagem: "assets/img/bad.vibes.memes.svg", nome: "bad.vibes.memes", razao: "Segue você" },
+  { imagem: "assets/img/chibirdart.svg", nome: "chibirdart", razao: "Segue você" },
+  { imagem: "assets/img/razoesparaacreditar.svg", nome: "razoesparaacreditar", razao: "Novo no Instagram" },
+  { imagem: "assets/img/adorable_animals.svg", nome: "adorable_animals", razao: "Segue você" },
+  { imagem: "assets/img/smallcutecats.svg", nome: "smallcutecats", razao: "Segue você" }
 ];
 
 export default function ConvolverOptions() {
@@ -31,72 +39,7 @@ export default function ConvolverOptions() {
           </div>
         </div>
 
-        <div class="sugestoes">
-          <div class="titulo">
-            Sugestões para você
-            <div>Ver tudo</div>
-          </div>
-
-          <div class="sugestao">
-            <div class="usuario">
-              <img src="assets/img/bad.vibes.memes.svg" />
-              <div class="texto">
-                <div class="nome">bad.vibes.memes</div>
-                <div class="razao">Segue você</div>
-              </div>
-            </div>
-
-            <div class="seguir">Seguir</div>
-          </div>
-
-          <div class="sugestao">
-            <div class="usuario">
-              <img src="assets/img/chibirdart.svg" />
-              <div class="texto">
-                <div class="nome">chibirdart</div>
-                <div class="razao">Segue você</div>
-              </div>
-            </div>
-
-            <div class="seguir">Seguir</div>
-          </div>
-
-          <div class="sugestao">
-            <div class="usuario">
-              <img src="assets/img/razoesparaacreditar.svg" />
-              <div class="texto">
-                <div class="nome">razoesparaacreditar</div>
-                <div class="razao">Novo no Instagram</div>
-              </div>
-            </div>
-
-            <div class="seguir">Seguir</div>
-          </div>
-
-          <div class="sugestao">
-            <div class="usuario">
-              <img src="assets/img/adorable_animals.svg" />
-              <div class="texto">
-                <div class="nome">adorable_animals</div>
-                <div class="razao">Segue você</div>
-              </div>
-            </div>
-
-            <div class="seguir">Seguir</div>
-          </div>
-
-          <div class="sugestao">
-            <div class="usuario">
-              <img src="assets/img/smallcutecats.svg" />
-              <div class="texto">
-                <div class="nome">smallcutecats</div>
-                <div class="razao">Segue você</div>
-              </div>
-            </div>
-
-            <div class="seguir">Seguir</div>
-          </div>
-        </div>
+        <Sugestoes />
 
         <div class="links">
           Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma
@@ -187,7 +130,38 @@ function Posts() {
   return (
     <div class="posts">
       {posts.map(post =>
-        <Post imagem={post.imagem} nome={post.nome} conteudo={post.conteudo} perfil={post.perfil} curtidas={post.curtidas} quantidade={post.quantidade}/>
+        <Post imagem={post.imagem} nome={post.nome} conteudo={post.conteudo} perfil={post.perfil} curtidas={post.curtidas} quantidade={post.quantidade} />
+      )}
+    </div>
+  );
+}
+
+function Sugestao(props) {
+  return (
+    <div class="sugestao">
+      <div class="usuario">
+        <img src={props.imagem} />
+        <div class="texto">
+          <div class="nome">{props.nome}</div>
+          <div class="razao">{props.razao}</div>
+        </div>
+      </div>
+
+      <div class="seguir">Seguir</div>
+    </div>
+  );
+}
+
+function Sugestoes() {
+  return (
+    <div class="sugestoes">
+      <div class="titulo">
+        Sugestões para você
+        <div>Ver tudo</div>
+      </div>
+
+      {sugestoes.map(sugestao =>
+        <Sugestao imagem={sugestao.imagem} nome={sugestao.nome} razao={sugestao.razao} />
       )}
     </div>
   );
