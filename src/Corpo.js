@@ -22,6 +22,10 @@ const sugestoes = [
   { imagem: "assets/img/smallcutecats.svg", nome: "smallcutecats", razao: "Segue você" }
 ];
 
+const icons = [
+  "heart-outline", "chatbubble-outline", "paper-plane-outline"
+];
+
 export default function Corpo() {
   return (
     <div class="corpo">
@@ -93,9 +97,9 @@ function Post(props) {
       <div class="fundo">
         <div class="acoes">
           <div>
-            <Icon name="heart-outline" />
-            <Icon name="chatbubble-outline" />
-            <Icon name="paper-plane-outline" />
+            {icons.map(icon =>
+              <Icon name={icon} />
+            )}  
           </div>
           <div>
             <Icon name="bookmark-outline" />

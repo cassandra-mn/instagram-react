@@ -1,3 +1,7 @@
+const icons = [
+  "paper-plane-outline", "compass-outline", "heart-outline", "person-outline"
+];
+
 export default function Navbar() {
   return (
     <div class="navbar">
@@ -21,10 +25,9 @@ export default function Navbar() {
         </div>
 
         <div class="icones">
-          <Icon name="paper-plane-outline" />
-          <Icon name="compass-outline" />
-          <Icon name="heart-outline" />
-          <Icon name="person-outline" />
+          {icons.map(icon => 
+            <Icon name={icon} />
+          )}
         </div>
 
         <div class="icones-mobile">
